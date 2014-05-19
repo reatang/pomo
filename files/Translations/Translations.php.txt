@@ -54,8 +54,7 @@ class Translations
      *
      * If the header already exists, it will be overwritten
      *
-     * TODO: this should be out of this class, it is gettext specific
-     *
+     * @todo This should be out of this class, it is gettext specific
      * @param string $header header name, without trailing :
      * @param string $value  header value, without trailing \n
      */

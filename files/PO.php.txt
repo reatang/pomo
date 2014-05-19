@@ -49,7 +49,7 @@ class PO extends GettextTranslations
      */
     public function export_entries()
     {
-        //TODO sorting
+        //TODO: sorting
         return implode("\n\n", array_map(array('PO', 'export_entry'), $this->entries));
     }
 
@@ -101,11 +101,10 @@ class PO extends GettextTranslations
     /**
      * Formats a string in PO-style
      *
-     * @static
      * @param  string $string the string to format
      * @return string the poified string
      */
-    public function poify($string)
+    public static function poify($string)
     {
         $quote = '"';
         $slash = '\\';
@@ -134,11 +133,10 @@ class PO extends GettextTranslations
     /**
      * Gives back the original string from a PO-formatted string
      *
-     * @static
      * @param  string $string PO-formatted string
      * @return string enascaped string
      */
-    public function unpoify($string)
+    public static function unpoify($string)
     {
         $escapes = array('t' => "\t", 'n' => "\n", '\\' => '\\');
         $lines = array_map('trim', explode("\n", $string));
@@ -168,11 +166,10 @@ class PO extends GettextTranslations
      * Inserts $with in the beginning of every new line of $string and
      * returns the modified string
      *
-     * @static
      * @param string $string prepend lines in this string
      * @param string $with   prepend lines with this string
      */
-    public function prepend_each_line($string, $with)
+    public static function prepend_each_line($string, $with)
     {
         $php_with = var_export($with, true);
         $lines = explode("\n", $string);
@@ -188,12 +185,11 @@ class PO extends GettextTranslations
      * Prepare a text as a comment -- wraps the lines and prepends #
      * and a special character to each line
      *
-     * @access private
      * @param string $text the comment text
      * @param string $char character to denote a special PO comment,
      *                     like :, default is a space
      */
-    public function comment_block($text, $char=' ')
+    private function comment_block($text, $char=' ')
     {
         $text = wordwrap($text, PO_MAX_LINE_LEN - 3);
 
@@ -203,12 +199,11 @@ class PO extends GettextTranslations
     /**
      * Builds a string from the entry for inclusion in PO file
      *
-     * @static
      * @param  object      &$entry the entry to convert to po string
      * @return string|bool PO-style formatted string for the entry or
      *                            false if the entry is empty
      */
-    public function export_entry(&$entry)
+    public static function export_entry(&$entry)
     {
         if (is_null($entry->singular)) return false;
         $po = array();
