@@ -2,8 +2,8 @@
 /**
  * This file is part of the POMO package.
  *
- * @copyright POMO 2014 - GPLv2
- * @package POMO
+ * @copyright 2014 POMO
+ * @license GPL
  */
 
 namespace POMO\Streams;
@@ -12,7 +12,6 @@ namespace POMO\Streams;
  * Provides file-like methods for manipulating a string instead
  * of a physical file.
  *
- * @subpackage Streams
  * @author Danilo Segan <danilo@kvota.net>
  */
 class StringReader extends Reader

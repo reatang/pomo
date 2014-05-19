@@ -2,16 +2,14 @@
 /**
  * This file is part of the POMO package.
  *
- * @copyright POMO 2014 - GPLv2
- * @package POMO
+ * @copyright 2014 POMO
+ * @license GPL
  */
 
 namespace POMO\Translations;
 
 /**
  * Class for a set of entries for translation and their associated headers
- *
- * @subpackage Translations
  */
 class Translations
 {

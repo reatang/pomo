@@ -2,8 +2,8 @@
 /**
  * This file is part of the POMO package.
  *
- * @copyright POMO 2014 - GPLv2
- * @package POMO
+ * @copyright 2014 POMO
+ * @license GPL
  */
 
 namespace POMO\Translations;
@@ -11,8 +11,6 @@ namespace POMO\Translations;
 /**
  * Contains EntryTranslations class
  * EntryTranslations class encapsulates a translatable string
- *
- * @subpackage Translations
  */
 class EntryTranslations
 {

@@ -2,8 +2,8 @@
 /**
  * This file is part of the POMO package.
  *
- * @copyright POMO 2014 - GPLv2
- * @package POMO
+ * @copyright 2014 POMO
+ * @license GPL
  */
 
 namespace POMO\Streams;
@@ -11,8 +11,6 @@ namespace POMO\Streams;
 /**
  * Classes, which help reading streams of data from files.
  *
- * @package POMO
- * @subpackage Streams
  * @author Danilo Segan <danilo@kvota.net>
  */
 class FileReader extends Reader
