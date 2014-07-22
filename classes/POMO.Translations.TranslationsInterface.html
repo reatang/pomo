@@ -21,54 +21,54 @@
     <script src="../js/jquery.smooth-scroll.js"></script>
     <script src="../js/prism.min.js"></script>
     <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
-    <script type="text/javascript">
-    function loadExternalCodeSnippets() {
-        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
-            var src = pre.getAttribute('data-src');
-            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
-            var language = 'php';
+        <script type="text/javascript">
+        function loadExternalCodeSnippets() {
+            Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+                var src = pre.getAttribute('data-src');
+                var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+                var language = 'php';
 
-            var code = document.createElement('code');
-            code.className = 'language-' + language;
+                var code = document.createElement('code');
+                code.className = 'language-' + language;
 
-            pre.textContent = '';
+                pre.textContent = '';
 
-            code.textContent = 'Loading…';
+                code.textContent = 'Loading…';
 
-            pre.appendChild(code);
+                pre.appendChild(code);
 
-            var xhr = new XMLHttpRequest();
+                var xhr = new XMLHttpRequest();
 
-            xhr.open('GET', src, true);
+                xhr.open('GET', src, true);
 
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState == 4) {
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4) {
 
-                    if (xhr.status < 400 && xhr.responseText) {
-                        code.textContent = xhr.responseText;
+                        if (xhr.status < 400 && xhr.responseText) {
+                            code.textContent = xhr.responseText;
 
-                        Prism.highlightElement(code);
+                            Prism.highlightElement(code);
+                        }
+                        else if (xhr.status >= 400) {
+                            code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                        }
+                        else {
+                            code.textContent = '✖ Error: File does not exist or is empty';
+                        }
                     }
-                    else if (xhr.status >= 400) {
-                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
-                    }
-                    else {
-                        code.textContent = '✖ Error: File does not exist or is empty';
-                    }
-                }
-            };
+                };
 
-            xhr.send(null);
+                xhr.send(null);
+            });
+        }
+
+        $(document).ready(function(){
+            loadExternalCodeSnippets();
         });
-    }
-
-    $(document).ready(function(){
-        loadExternalCodeSnippets();
-    });
-    $('#source-view').on('shown', function () {
-        loadExternalCodeSnippets();
-    })
-</script>
+        $('#source-view').on('shown', function () {
+            loadExternalCodeSnippets();
+        })
+    </script>
 
     <link rel="shortcut icon" href="../images/favicon.ico"/>
     <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
@@ -144,28 +144,28 @@
                                 <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-394580114"></a>
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1895537205"></a>
                                 <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-394580114" class="accordion-body collapse in">
+            <div id="namespace-1895537205" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1197460668"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-439647432"></a>
                                 <a href="../namespaces/POMO.html" style="margin-left: 30px; padding-left: 0">POMO</a>
             </div>
-            <div id="namespace-1197460668" class="accordion-body collapse ">
+            <div id="namespace-439647432" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-28547261"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1988334399"></a>
                                 <a href="../namespaces/POMO.Streams.html" style="margin-left: 30px; padding-left: 0">Streams</a>
             </div>
-            <div id="namespace-28547261" class="accordion-body collapse ">
+            <div id="namespace-1988334399" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -184,10 +184,10 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-413759094"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1243518099"></a>
                                 <a href="../namespaces/POMO.Translations.html" style="margin-left: 30px; padding-left: 0">Translations</a>
             </div>
-            <div id="namespace-413759094" class="accordion-body collapse ">
+            <div id="namespace-1243518099" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -228,99 +228,69 @@
             <div class="row-fluid">
                 <div class="span8 content class">
                     <nav>
-                                                <a href="../namespaces/POMO.Translations.html">\POMO\Translations</a> <i class="icon-level-up"></i>
+                                                <a href="../namespaces/POMO.Translations.html">\POMO\Translations</a>
                                             </nav>
                     <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
 
-                    <h1><small>\POMO\Translations</small>GettextTranslations</h1>
-                    <p><em>Class for a set of entries for translation and their associated headers</em></p>
+                    <h1><small>\POMO\Translations</small>TranslationsInterface</h1>
+                    <p><em>Translations Interface that all POMO Translators must implement</em></p>
                     
 
                     <section id="summary">
                         <h2>Summary</h2>
                         <section class="row-fluid heading">
-                            <section class="span4">
+                            <section class="span6">
                                 <a href="#methods">Methods</a>
                             </section>
-                            <section class="span4">
-                                <a href="#properties">Properties</a>
-                            </section>
-                            <section class="span4">
+                            <section class="span6">
                                 <a href="#constants">Constants</a>
                             </section>
                         </section>
                         <section class="row-fluid public">
-                            <section class="span4">
-                                                                    <a href="../classes/POMO.Translations.Translations.html#method_add_entry" class="">add_entry()</a><br />
-                                                                    <a href="../classes/POMO.Translations.Translations.html#method_add_entry_or_merge" class="">add_entry_or_merge()</a><br />
-                                                                    <a href="../classes/POMO.Translations.GettextTranslations.html#method_set_header" class="">set_header()</a><br />
-                                                                    <a href="../classes/POMO.Translations.Translations.html#method_set_headers" class="">set_headers()</a><br />
-                                                                    <a href="../classes/POMO.Translations.Translations.html#method_get_header" class="">get_header()</a><br />
-                                                                    <a href="../classes/POMO.Translations.Translations.html#method_translate_entry" class="">translate_entry()</a><br />
-                                                                    <a href="../classes/POMO.Translations.Translations.html#method_translate" class="">translate()</a><br />
-                                                                    <a href="../classes/POMO.Translations.Translations.html#method_select_plural_form" class="">select_plural_form()</a><br />
-                                                                    <a href="../classes/POMO.Translations.Translations.html#method_get_plural_forms_count" class="">get_plural_forms_count()</a><br />
-                                                                    <a href="../classes/POMO.Translations.Translations.html#method_translate_plural" class="">translate_plural()</a><br />
-                                                                    <a href="../classes/POMO.Translations.Translations.html#method_merge_with" class="">merge_with()</a><br />
-                                                                    <a href="../classes/POMO.Translations.Translations.html#method_merge_originals_with" class="">merge_originals_with()</a><br />
-                                                                    <a href="../classes/POMO.Translations.GettextTranslations.html#method_gettext_select_plural_form" class="">gettext_select_plural_form()</a><br />
-                                                                    <a href="../classes/POMO.Translations.GettextTranslations.html#method_nplurals_and_expression_from_header" class="">nplurals_and_expression_from_header()</a><br />
-                                                                    <a href="../classes/POMO.Translations.GettextTranslations.html#method_make_plural_form_function" class="">make_plural_form_function()</a><br />
-                                                                    <a href="../classes/POMO.Translations.GettextTranslations.html#method_parenthesize_plural_exression" class="">parenthesize_plural_exression()</a><br />
-                                                                    <a href="../classes/POMO.Translations.GettextTranslations.html#method_make_headers" class="">make_headers()</a><br />
+                            <section class="span6">
+                                                                    <a href="../classes/POMO.Translations.TranslationsInterface.html#method_add_entry">add_entry()</a><br />
+                                                                    <a href="../classes/POMO.Translations.TranslationsInterface.html#method_set_header">set_header()</a><br />
+                                                                    <a href="../classes/POMO.Translations.TranslationsInterface.html#method_set_headers">set_headers()</a><br />
+                                                                    <a href="../classes/POMO.Translations.TranslationsInterface.html#method_get_header">get_header()</a><br />
+                                                                    <a href="../classes/POMO.Translations.TranslationsInterface.html#method_translate_entry">translate_entry()</a><br />
+                                                                    <a href="../classes/POMO.Translations.TranslationsInterface.html#method_translate">translate()</a><br />
+                                                                    <a href="../classes/POMO.Translations.TranslationsInterface.html#method_select_plural_form">select_plural_form()</a><br />
+                                                                    <a href="../classes/POMO.Translations.TranslationsInterface.html#method_get_plural_forms_count">get_plural_forms_count()</a><br />
+                                                                    <a href="../classes/POMO.Translations.TranslationsInterface.html#method_translate_plural">translate_plural()</a><br />
+                                                                    <a href="../classes/POMO.Translations.TranslationsInterface.html#method_merge_with">merge_with()</a><br />
                                                             </section>
-                            <section class="span4">
-                                                                    <a href="../classes/POMO.Translations.Translations.html#property_entries" class="">$entries</a><br />
-                                                                    <a href="../classes/POMO.Translations.Translations.html#property_headers" class="">$headers</a><br />
-                                                            </section>
-                            <section class="span4">
+                            <section class="span6">
                                                                     <em>No constants found</em>
                                                             </section>
                         </section>
                         <section class="row-fluid protected">
-                            <section class="span4">
+                            <section class="span6">
                                                                     <em>No protected methods found</em>
                                                             </section>
-                            <section class="span4">
-                                                                    <em>No protected properties found</em>
-                                                            </section>
-                            <section class="span4">
+                            <section class="span6">
                                 <em>N/A</em>
                             </section>
                         </section>
                         <section class="row-fluid private">
-                            <section class="span4">
+                            <section class="span6">
                                                                     <em>No private methods found</em>
                                                             </section>
-                            <section class="span4">
-                                                                    <em>No private properties found</em>
-                                                            </section>
-                            <section class="span4">
+                            <section class="span6">
                                 <em>N/A</em>
                             </section>
                         </section>
                     </section>
                 </div>
                 <aside class="span4 detailsbar">
-                                        
-                    
-                    <dl>
+                                        <dl>
                         <dt>File</dt>
-                            <dd><a href="../files/Translations.GettextTranslations.html"><div class="path-wrapper">Translations\GettextTranslations.php</div></a></dd>
+                            <dd>
+                                <a href="../files/Translations.TranslationsInterface.html"><div class="path-wrapper">Translations\TranslationsInterface.php</div></a>
+                            </dd>
                                                 <dt>Package</dt>
                             <dd><div class="namespace-wrapper">\Default</div></dd>
-                                                <dt>Class hierarchy</dt>
-                            <dd class="hierarchy">
-                                                                                                                                                                                                                                                                                                
-                                        <div class="namespace-wrapper"><a href="../classes/POMO.Translations.Translations.html">\POMO\Translations\Translations</a></div>
-                                                                                                    <div class="namespace-wrapper">\POMO\Translations\GettextTranslations</div>
-                            </dd>
-
-                        
-                        
-                        
-                        
-                                                                        </dl>
+                                                
+                                            </dl>
                     <h2>Tags</h2>
                     <table class="table table-condensed">
                                             <tr><td colspan="2"><em>None found</em></td></tr>
@@ -328,71 +298,11 @@
                 </aside>
             </div>
 
-                        
-                                    <a id="properties" name="properties"></a>
-            <div class="row-fluid">
+            
+                        <div class="row-fluid">
                 <div class="span8 content class">
-                    <h2>Properties</h2>
+                    <h2>Methods</h2>
                 </div>
-                <aside class="span4 detailsbar"></aside>
-            </div>
-
-                                    <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="property_entries" name="property_entries" class="anchor"></a>
-            <article class="property">
-                <h3 class="public ">$entries</h3>
-                <pre class="signature">$entries : </pre>
-                <p><em>{@inheritdoc}</em></p>
-                
-
-                                <h4>Type</h4>
-                
-                                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                        <dl>
-                                    <dt>Inherited from</dt>
-                    <dd><a href="../classes/POMO.Translations.Translations.html"><div class="path-wrapper">\POMO\Translations\Translations</div></a></dd>
-                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                            </table>
-        </aside>
-    </div>
-
-                                    <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="property_headers" name="property_headers" class="anchor"></a>
-            <article class="property">
-                <h3 class="public ">$headers</h3>
-                <pre class="signature">$headers : </pre>
-                <p><em>{@inheritdoc}</em></p>
-                
-
-                                <h4>Type</h4>
-                
-                                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                        <dl>
-                                    <dt>Inherited from</dt>
-                    <dd><a href="../classes/POMO.Translations.Translations.html"><div class="path-wrapper">\POMO\Translations\Translations</div></a></dd>
-                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                            </table>
-        </aside>
-    </div>
-
-                                                            
-                                    <a id="methods" name="methods"></a>
-            <div class="row-fluid">
-                <div class="span8 content class"><h2>Methods</h2></div>
                 <aside class="span4 detailsbar"></aside>
             </div>
 
@@ -424,44 +334,7 @@
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
-                                                    <dt>Inherited from</dt>
-                    <dd><a href="../classes/POMO.Translations.Translations.html"><div class="path-wrapper">\POMO\Translations\Translations</div></a></dd>
-                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                            </table>
-        </aside>
-    </div>
-
-                                    <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_add_entry_or_merge" name="method_add_entry_or_merge" class="anchor"></a>
-            <article class="method">
-                <h3 class="public ">add_entry_or_merge()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">add_entry_or_merge( <span class="argument">$entry</span>)</pre>
-                <p><em></em></p>
-                
-
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
-                                <td></td>
-                                <td>$entry </td>
-                                <td></td>
-                            </tr>
-                                            </table>
-                
-                
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                                    <dt>Inherited from</dt>
-                    <dd><a href="../classes/POMO.Translations.Translations.html"><div class="path-wrapper">\POMO\Translations\Translations</div></a></dd>
-                                                            </dl>
+                                                                            </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -475,21 +348,21 @@
             <article class="method">
                 <h3 class="public ">set_header()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">set_header( <span class="argument">$header</span>,  <span class="argument">$value</span>)</pre>
+                <pre class="signature" style="margin-right: 54px;">set_header(string <span class="argument">$header</span>, string <span class="argument">$value</span>)</pre>
                 <p><em>Sets $header PO header to $value</em></p>
                 <p>If the header already exists, it will be overwritten</p>
 
                                     <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">
                                                     <tr>
-                                <td></td>
+                                <td>string</td>
                                 <td>$header </td>
-                                <td></td>
+                                <td><p>header name, without trailing :</p></td>
                             </tr>
                                                     <tr>
-                                <td></td>
+                                <td>string</td>
                                 <td>$value </td>
-                                <td></td>
+                                <td><p>header value, without trailing \n</p></td>
                             </tr>
                                             </table>
                 
@@ -502,7 +375,14 @@
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                                                            <p>This should be out of this class, it is gettext specific</p>
+                                                    </td>
+                    </tr>
                             </table>
         </aside>
     </div>
@@ -532,9 +412,7 @@
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
-                                                    <dt>Inherited from</dt>
-                    <dd><a href="../classes/POMO.Translations.Translations.html"><div class="path-wrapper">\POMO\Translations\Translations</div></a></dd>
-                                                            </dl>
+                                                                            </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -567,9 +445,7 @@
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
-                                                    <dt>Inherited from</dt>
-                    <dd><a href="../classes/POMO.Translations.Translations.html"><div class="path-wrapper">\POMO\Translations\Translations</div></a></dd>
-                                                            </dl>
+                                                                            </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -602,9 +478,7 @@
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
-                                                    <dt>Inherited from</dt>
-                    <dd><a href="../classes/POMO.Translations.Translations.html"><div class="path-wrapper">\POMO\Translations\Translations</div></a></dd>
-                                                            </dl>
+                                                                            </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -618,19 +492,19 @@
             <article class="method">
                 <h3 class="public ">translate()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">translate( <span class="argument">$singular</span>,  <span class="argument">$context</span>) : string</pre>
+                <pre class="signature" style="margin-right: 54px;">translate(string <span class="argument">$singular</span>, mixed <span class="argument">$context</span>) : string</pre>
                 <p><em>Translate an entry in the singular way</em></p>
                 
 
                                     <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">
                                                     <tr>
-                                <td></td>
+                                <td>string</td>
                                 <td>$singular </td>
-                                <td></td>
+                                <td><p>Singular form of the entry</p></td>
                             </tr>
                                                     <tr>
-                                <td></td>
+                                <td>mixed</td>
                                 <td>$context </td>
                                 <td></td>
                             </tr>
@@ -645,9 +519,7 @@
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
-                                                    <dt>Inherited from</dt>
-                    <dd><a href="../classes/POMO.Translations.Translations.html"><div class="path-wrapper">\POMO\Translations\Translations</div></a></dd>
-                                                            </dl>
+                                                                            </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -661,7 +533,7 @@
             <article class="method">
                 <h3 class="public ">select_plural_form()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">select_plural_form( <span class="argument">$count</span>)</pre>
+                <pre class="signature" style="margin-right: 54px;">select_plural_form(integer <span class="argument">$count</span>)</pre>
                 <p><em>Given the number of items, returns the 0-based index of the plural form to use</em></p>
                 <p>Here, in the base Translations class, the common logic for English is implemented:</p>
 <pre><code>0 if there is one element, 1 otherwise</code></pre>
@@ -671,9 +543,9 @@ from their headers.</p>
                                     <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">
                                                     <tr>
-                                <td></td>
+                                <td>integer</td>
                                 <td>$count </td>
-                                <td></td>
+                                <td><p>number of items</p></td>
                             </tr>
                                             </table>
                 
@@ -683,9 +555,7 @@ from their headers.</p>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
-                                                    <dt>Inherited from</dt>
-                    <dd><a href="../classes/POMO.Translations.Translations.html"><div class="path-wrapper">\POMO\Translations\Translations</div></a></dd>
-                                                            </dl>
+                                                                            </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -710,9 +580,7 @@ from their headers.</p>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
-                                                    <dt>Inherited from</dt>
-                    <dd><a href="../classes/POMO.Translations.Translations.html"><div class="path-wrapper">\POMO\Translations\Translations</div></a></dd>
-                                                            </dl>
+                                                                            </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -726,7 +594,7 @@ from their headers.</p>
             <article class="method">
                 <h3 class="public ">translate_plural()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">translate_plural( <span class="argument">$singular</span>,  <span class="argument">$plural</span>,  <span class="argument">$count</span>,  <span class="argument">$context</span>) : string</pre>
+                <pre class="signature" style="margin-right: 54px;">translate_plural(string <span class="argument">$singular</span>, string <span class="argument">$plural</span>, integer <span class="argument">$count</span>, mixed <span class="argument">$context</span>) : string</pre>
                 <p><em>Plural sensitive tranlation of an entry</em></p>
                 <p>Same behavior as \translate() but with plural analyser, provide by
 \select_plural_form() parser.</p>
@@ -734,22 +602,22 @@ from their headers.</p>
                                     <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">
                                                     <tr>
-                                <td></td>
+                                <td>string</td>
                                 <td>$singular </td>
-                                <td></td>
+                                <td><p>Singular form of the entry</p></td>
                             </tr>
                                                     <tr>
-                                <td></td>
+                                <td>string</td>
                                 <td>$plural </td>
-                                <td></td>
+                                <td><p>Plural form of the entry</p></td>
                             </tr>
                                                     <tr>
-                                <td></td>
+                                <td>integer</td>
                                 <td>$count </td>
-                                <td></td>
+                                <td><p>Number of items for the plural context</p></td>
                             </tr>
                                                     <tr>
-                                <td></td>
+                                <td>mixed</td>
                                 <td>$context </td>
                                 <td></td>
                             </tr>
@@ -764,9 +632,7 @@ from their headers.</p>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
-                                                    <dt>Inherited from</dt>
-                    <dd><a href="../classes/POMO.Translations.Translations.html"><div class="path-wrapper">\POMO\Translations\Translations</div></a></dd>
-                                                            </dl>
+                                                                            </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -799,222 +665,6 @@ from their headers.</p>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
-                                                    <dt>Inherited from</dt>
-                    <dd><a href="../classes/POMO.Translations.Translations.html"><div class="path-wrapper">\POMO\Translations\Translations</div></a></dd>
-                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                            </table>
-        </aside>
-    </div>
-
-                                    <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_merge_originals_with" name="method_merge_originals_with" class="anchor"></a>
-            <article class="method">
-                <h3 class="public ">merge_originals_with()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">merge_originals_with( <span class="argument">$other</span>)</pre>
-                <p><em></em></p>
-                
-
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
-                                <td></td>
-                                <td>$other </td>
-                                <td></td>
-                            </tr>
-                                            </table>
-                
-                
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                                    <dt>Inherited from</dt>
-                    <dd><a href="../classes/POMO.Translations.Translations.html"><div class="path-wrapper">\POMO\Translations\Translations</div></a></dd>
-                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                            </table>
-        </aside>
-    </div>
-
-                                    <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_gettext_select_plural_form" name="method_gettext_select_plural_form" class="anchor"></a>
-            <article class="method">
-                <h3 class="public ">gettext_select_plural_form()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">gettext_select_plural_form(integer <span class="argument">$count</span>)</pre>
-                <p><em>The gettext implementation of select_plural_form.</em></p>
-                <p>It lives in this class, because there are more than one descendand, which will use it and
-they can't share it effectively.</p>
-
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
-                                <td>integer</td>
-                                <td>$count </td>
-                                <td><p>Items count</p></td>
-                            </tr>
-                                            </table>
-                
-                
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                            </table>
-        </aside>
-    </div>
-
-                                    <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_nplurals_and_expression_from_header" name="method_nplurals_and_expression_from_header" class="anchor"></a>
-            <article class="method">
-                <h3 class="public ">nplurals_and_expression_from_header()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">nplurals_and_expression_from_header( <span class="argument">$header</span>)</pre>
-                <p><em></em></p>
-                
-
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
-                                <td></td>
-                                <td>$header </td>
-                                <td></td>
-                            </tr>
-                                            </table>
-                
-                
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                            </table>
-        </aside>
-    </div>
-
-                                    <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_make_plural_form_function" name="method_make_plural_form_function" class="anchor"></a>
-            <article class="method">
-                <h3 class="public ">make_plural_form_function()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">make_plural_form_function(integer <span class="argument">$nplurals</span>, string <span class="argument">$expression</span>) : integer</pre>
-                <p><em>Makes a function, which will return the right translation index, according to the
-plural forms header</em></p>
-                
-
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
-                                <td>integer</td>
-                                <td>$nplurals </td>
-                                <td></td>
-                            </tr>
-                                                    <tr>
-                                <td>string</td>
-                                <td>$expression </td>
-                                <td></td>
-                            </tr>
-                                            </table>
-                
-                
-                                    <h4>Returns</h4>
-                    integer
-                                            &mdash; <p>The right translation index</p>
-                                                </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                            </table>
-        </aside>
-    </div>
-
-                                    <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_parenthesize_plural_exression" name="method_parenthesize_plural_exression" class="anchor"></a>
-            <article class="method">
-                <h3 class="public ">parenthesize_plural_exression()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">parenthesize_plural_exression(string <span class="argument">$expression</span>) : string</pre>
-                <p><em>Adds parantheses to the inner parts of ternary operators in
-plural expressions, because PHP evaluates ternary oerators from left to right</em></p>
-                
-
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
-                                <td>string</td>
-                                <td>$expression </td>
-                                <td><p>the expression without parentheses</p></td>
-                            </tr>
-                                            </table>
-                
-                
-                                    <h4>Returns</h4>
-                    string
-                                            &mdash; <p>the expression with parentheses added</p>
-                                                </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                            </table>
-        </aside>
-    </div>
-
-                                    <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_make_headers" name="method_make_headers" class="anchor"></a>
-            <article class="method">
-                <h3 class="public ">make_headers()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">make_headers( <span class="argument">$translation</span>)</pre>
-                <p><em></em></p>
-                
-
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
-                                <td></td>
-                                <td>$translation </td>
-                                <td></td>
-                            </tr>
-                                            </table>
-                
-                
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1029,10 +679,10 @@ plural expressions, because PHP evaluates ternary oerators from left to right</e
     <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3 id="source-view-label">GettextTranslations.php</h3>
+            <h3 id="source-view-label">TranslationsInterface.php</h3>
         </div>
         <div class="modal-body">
-            <pre data-src="../files/Translations\GettextTranslations.php.txt" class="language-php line-numbers"></pre>
+            <pre data-src="../files/Translations\TranslationsInterface.php.txt" class="language-php"></pre>
         </div>
     </div>
 

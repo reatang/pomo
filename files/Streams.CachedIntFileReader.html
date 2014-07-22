@@ -21,7 +21,55 @@
     <script src="../js/jquery.smooth-scroll.js"></script>
     <script src="../js/prism.min.js"></script>
     <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
-    
+        <script type="text/javascript">
+        function loadExternalCodeSnippets() {
+            Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+                var src = pre.getAttribute('data-src');
+                var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+                var language = 'php';
+
+                var code = document.createElement('code');
+                code.className = 'language-' + language;
+
+                pre.textContent = '';
+
+                code.textContent = 'Loading…';
+
+                pre.appendChild(code);
+
+                var xhr = new XMLHttpRequest();
+
+                xhr.open('GET', src, true);
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4) {
+
+                        if (xhr.status < 400 && xhr.responseText) {
+                            code.textContent = xhr.responseText;
+
+                            Prism.highlightElement(code);
+                        }
+                        else if (xhr.status >= 400) {
+                            code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                        }
+                        else {
+                            code.textContent = '✖ Error: File does not exist or is empty';
+                        }
+                    }
+                };
+
+                xhr.send(null);
+            });
+        }
+
+        $(document).ready(function(){
+            loadExternalCodeSnippets();
+        });
+        $('#source-view').on('shown', function () {
+            loadExternalCodeSnippets();
+        })
+    </script>
+
     <link rel="shortcut icon" href="../images/favicon.ico"/>
     <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
     <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
@@ -96,28 +144,28 @@
                                 <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-487816402"></a>
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1092485293"></a>
                                 <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-487816402" class="accordion-body collapse in">
+            <div id="namespace-1092485293" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-781522230"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-983485747"></a>
                                 <a href="../namespaces/POMO.html" style="margin-left: 30px; padding-left: 0">POMO</a>
             </div>
-            <div id="namespace-781522230" class="accordion-body collapse ">
+            <div id="namespace-983485747" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1496242517"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1268605783"></a>
                                 <a href="../namespaces/POMO.Streams.html" style="margin-left: 30px; padding-left: 0">Streams</a>
             </div>
-            <div id="namespace-1496242517" class="accordion-body collapse ">
+            <div id="namespace-1268605783" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -136,10 +184,10 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2043769205"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1039254076"></a>
                                 <a href="../namespaces/POMO.Translations.html" style="margin-left: 30px; padding-left: 0">Translations</a>
             </div>
-            <div id="namespace-2043769205" class="accordion-body collapse ">
+            <div id="namespace-1039254076" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -178,55 +226,53 @@
     <section class="row-fluid">
         <div class="span10 offset2">
             <div class="row-fluid">
-                <div class="span8 content namespace">
+                <div class="span8 content file">
                     <nav>
-                                                <a href="../namespaces/POMO.html">\POMO</a>
-                                            </nav>
-                    <h1><small>\POMO</small>Translations</h1>
+                                                                    </nav>
+
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+                    <h1><small></small>CachedIntFileReader.php</h1>
+                    <p><em>This file is part of the POMO package.</em></p>
+                    
 
                     
-                    
-                                        <h2>Interfaces</h2>
-                    <table class="table table-hover">
-                                                    <tr>
-                                <td><a href="../classes/POMO.Translations.TranslationsInterface.html">TranslationsInterface</a></td>
-                                <td><em>Translations Interface that all POMO Translators must implement</em></td>
-                            </tr>
-                                            </table>
                     
                                         <h2>Classes</h2>
                     <table class="table table-hover">
                                             <tr>
-                            <td><a href="../classes/POMO.Translations.EntryTranslations.html">EntryTranslations</a></td>
-                            <td><em>Contains EntryTranslations class
-EntryTranslations class encapsulates a translatable string</em></td>
-                        </tr>
-                                            <tr>
-                            <td><a href="../classes/POMO.Translations.GettextTranslations.html">GettextTranslations</a></td>
-                            <td><em>Class for a set of entries for translation and their associated headers</em></td>
-                        </tr>
-                                            <tr>
-                            <td><a href="../classes/POMO.Translations.NOOPTranslations.html">NOOPTranslations</a></td>
-                            <td><em>Provides the same interface as Translations, but doesn&#039;t do anything</em></td>
-                        </tr>
-                                            <tr>
-                            <td><a href="../classes/POMO.Translations.Translations.html">Translations</a></td>
-                            <td><em>Class for a set of entries for translation and their associated headers</em></td>
+                            <td><a href="../classes/POMO.Streams.CachedIntFileReader.html">CachedIntFileReader</a></td>
+                            <td><em>Reads the contents of the file in the beginning.</em></td>
                         </tr>
                                         </table>
                                     </div>
 
                 <aside class="span4 detailsbar">
                     <dl>
-                        <dt>Namespace hierarchy</dt>
-                        <dd class="hierarchy">
-                                                                                                                                                                                                                                                                                                                                                                                                            
-                                    <div class="namespace-wrapper"><a href="../namespaces/default.html">\</a></div>
-                                                            
-                                    <div class="namespace-wrapper"><a href="../namespaces/POMO.html">\POMO</a></div>
-                                                                                        <div class="namespace-wrapper">\POMO\Translations</div>
-                        </dd>
+                                                    <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">\Default</div></dd>
+                        
+                        
                     </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                                    <tr>
+                                <th>
+                                    copyright
+                                </th>
+                                <td>
+                                                                            <p>2014 POMO</p>
+                                                                    </td>
+                            </tr>
+                                                    <tr>
+                                <th>
+                                    license
+                                </th>
+                                <td>
+                                                                            <p>GPL</p>
+                                                                    </td>
+                            </tr>
+                                            </table>
+
                 </aside>
             </div>
 
@@ -234,6 +280,16 @@ EntryTranslations class encapsulates a translatable string</em></td>
             
         </div>
     </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label"></h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/Streams\CachedIntFileReader.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
 
     <footer class="row-fluid">
         <section class="span10 offset2">
