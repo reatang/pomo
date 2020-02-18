@@ -145,4 +145,30 @@ class GettextTranslations extends Translations implements TranslationsInterface
             $this->_gettext_select_plural_form = $this->make_plural_form_function($nplurals, $expression);
         }
     }
+
+    /**
+     * translate alias
+     *
+     * Help the translation software to analyze
+     *
+     * @param $singular
+     * @param null $context
+     * @return string
+     */
+    public function gettext($singular, $context = null) {
+        return $this->translate($singular, $context);
+    }
+
+    /**
+     * translate alias
+     *
+     * Help the translation software to analyze
+     *
+     * @param $singular
+     * @param null $context
+     * @return string
+     */
+    public function _($singular, $context = null) {
+        return $this->translate($singular, $context);
+    }
 }
