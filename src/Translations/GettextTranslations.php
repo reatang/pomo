@@ -153,6 +153,7 @@ class GettextTranslations extends Translations implements TranslationsInterface
      *
      * @param $singular
      * @param null $context
+     *
      * @return string
      */
     public function gettext($singular, $context = null) {
@@ -166,6 +167,7 @@ class GettextTranslations extends Translations implements TranslationsInterface
      *
      * @param $singular
      * @param null $context
+     * 
      * @return string
      */
     public function _($singular, $context = null) {
